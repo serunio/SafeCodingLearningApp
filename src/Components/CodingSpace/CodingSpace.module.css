@@ -1,0 +1,98 @@
+.pageBackground {
+    background-color: var(--vs-foreground);
+    height: 80%;
+}
+
+.navBar {
+    background-color: var(--vs-background);
+    height: 30px;
+}
+
+.tab {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 100%;
+    border-style: solid solid solid none;
+    border-color: var(--vs-stroke);
+    border-width: 1px;
+    float: left;
+    color: var(--stroke-color);
+
+}
+    .tab.default {
+        background-color: var(--vs-background);
+    }
+
+    .tab.default:hover {
+        background-color: var(--vs-foreground);
+    }
+
+    .tab.selected {
+        background-color: var(--vs-foreground);
+        border-top-color: var(--vs-highlight);
+        border-bottom-style: none;
+    }
+
+    .tab.single {
+        font-style: italic;
+    }
+
+    .selectTabButton {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        padding: 0 10px;
+    }
+
+    .closeTabButton {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: transparent;
+        border: none;
+        padding: 0;
+        width: 10%;
+    }
+
+    .closeTabButton:hover > .closeIcon {
+        color: var(--stroke-gray-color)
+    }
+
+    .closeIcon {
+        color: var(--stroke-color);
+        width: 10px;
+        height: auto;
+    }
+
+.tabLabel {
+
+}
+
+.tree {
+    width: 20%;
+    height: calc(100vh - 20px);
+    background-color: var(--vs-background);
+    color: var(--stroke-color);
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    /*border-color: var(--vs-stroke);*/
+    --rct-color-focustree-item-selected-bg: var(--vs-foreground);
+    --rct-radius: 0;
+    --rct-color-focustree-item-hover-bg: var(--vs-foreground);
+    --rct-color-focustree-item-active-bg: var(--vs-foreground);
+    --rct-color-focustree-item-active-text: var(--stroke-color);
+    --rct-color-arrow: var(--stroke-color);
+}
+
+.code {
+    width: 80%;
+    height: calc(100vh - 50px);
+}
+
+section {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 20px);
+}
