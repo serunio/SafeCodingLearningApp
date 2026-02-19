@@ -48,6 +48,7 @@
     border-radius: 17px;
     box-shadow: -4px 4px 4px 0 rgb(0,0,0,0.25) inset;
     overflow: auto;
+    scrollbar-color: var(--dark-color) rgba(255, 0, 0, 0);
     display: flex;
     flex-direction: column;
 }
