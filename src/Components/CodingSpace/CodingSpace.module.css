@@ -10,8 +10,12 @@
 
 .tab {
     position: relative;
-    display: inline-block;
-    box-sizing: border-box;
+    display: flex;
+    padding: 0 5px 0 5px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    /*box-sizing: border-box;*/
     height: 100%;
     border-style: solid solid solid none;
     border-color: var(--vs-stroke);
@@ -34,26 +38,34 @@
         border-bottom-style: none;
     }
 
-    .tab.single {
+    .tabLabel.default {
+        color: var(--stroke-gray-color);
+    }
+
+    .tabLabel.selected{
+        color: var(--stroke-color);
+    }
+
+    .tabLabel.single {
         font-style: italic;
     }
 
     .selectTabButton {
+        position: absolute;
+        right: 0;
         width: 100%;
         height: 100%;
         background: transparent;
         border: none;
-        padding: 0 10px;
+        padding: 0;
     }
 
     .closeTabButton {
-        position: absolute;
-        right: 0;
-        top: 0;
+        position: relative;
+        top: 1px;
         background: transparent;
         border: none;
         padding: 0;
-        width: 10%;
     }
 
     .closeTabButton:hover > .closeIcon {
@@ -66,18 +78,10 @@
         height: auto;
     }
 
-.tabLabel {
-
-}
-
 .tree {
-    width: 20%;
     height: calc(100vh - 20px);
     background-color: var(--vs-background);
     color: var(--stroke-color);
-    /*border-style: solid;*/
-    /*border-width: 1px;*/
-    /*border-color: var(--vs-stroke);*/
     --rct-color-focustree-item-selected-bg: var(--vs-foreground);
     --rct-radius: 0;
     --rct-color-focustree-item-hover-bg: var(--vs-foreground);
@@ -87,12 +91,23 @@
 }
 
 .code {
-    width: 80%;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 51px);
 }
 
 section {
     display: flex;
     width: 100%;
     height: calc(100vh - 20px);
+}
+
+.sidebar {
+    width: 30px;
+    background-color: #121212;
+}
+
+.instructions {
+    height: calc(100vh - 60px);
+    background-color: var(--vs-background);
+    color: var(--stroke-color);
+    padding: 20px;
 }

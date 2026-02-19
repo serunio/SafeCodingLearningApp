@@ -23,7 +23,7 @@
   --hard-color-hover: #be2829;
   --gray-color-hover: #6c6c72;
 
-  --main-font: "Roboto Light";
+  --main-font: "Roboto Light", sans-serif;
 
   --font-mini: 12px;
   --font-small: 14px;
@@ -31,7 +31,7 @@
   --font-large: 24px;
 
   background-color: var(--background-color);
-
+  font-family: var(--main-font), sans-serif;
 }
 
 body {
