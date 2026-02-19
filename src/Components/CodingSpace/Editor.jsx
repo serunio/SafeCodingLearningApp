@@ -1,11 +1,11 @@
 import styles from "./CodingSpace.module.css"
 import {useContext, useRef} from "react";
 import {Editor as MonacoEditor} from "@monaco-editor/react"
-import IconComponent from "../Icon/IconComponent.jsx";
 import Label from "../Label/Label.jsx";
-import icon from "../Icon/Icon.jsx";
 import {tree} from "./files.js";
 import {CodingSpaceContext} from "./CodingSpaceContext.js";
+import {IconComponent} from "../Icon/IconComponent.jsx";
+import {XIcon} from "lucide-react";
 
 export function Editor() {
     const {
@@ -94,7 +94,7 @@ export function Editor() {
                     <button
                         className={styles.closeTabButton}
                         onClick={() => close(fileIndex)}>
-                        <IconComponent image={icon.x} className={styles.closeIcon}/>
+                        <IconComponent Icon={XIcon} className={styles.closeIcon}/>
                     </button>
                 </div>
 

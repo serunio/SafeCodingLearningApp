@@ -10,24 +10,15 @@ import {
     SquareChartGantt,
     Settings,
     UserRound,
-    XIcon
+    XIcon, Moon
 } from "lucide-react";
 
-const Icon = {
-    inProgress: ({...props}) => (<Pen {...props}/>),
-    done: ({...props}) => (<CircleCheckBig {...props}/>),
-    start: ({...props}) => (<Play {...props}/>),
-    continue: ({...props}) => (<Play {...props}/>),
-    restart: ({...props}) => (<RotateCcw {...props}/>),
-    view: ({...props}) => (<Eye {...props}/>),
-    book: ({...props}) => (<BookOpenText {...props}/>),
-    exercise: ({...props}) => (<NotebookPen {...props}/>),
-    undo: ({...props}) => (<Undo2 {...props}/>),
-    menu: ({...props}) => (<SquareChartGantt {...props}/>),
-    user: ({...props}) => (<UserRound {...props}/>),
-    settings: ({...props}) => (<Settings {...props}/>),
-    x: ({...props}) => (<XIcon {...props}/>),
-    default: () => (<div/>)
+export const Icon = {
+    inProgress: Pen,
+    done: CircleCheckBig,
+    start: Play,
+    continue: Play,
+    view: Eye,
+    restart: RotateCcw
 }
 
-export default Icon

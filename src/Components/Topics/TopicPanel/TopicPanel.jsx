@@ -2,8 +2,8 @@ import styles from "./TopicPanel.module.css"
 import Label from "../../Label/Label.jsx";
 import {textConvert} from "../../../Utility/textConvert.js";
 import {exercises} from "../../../Utility/Exercises.js";
-import IconButton from "../../Icon/IconButton/IconButton.jsx";
-import Icon from "../../Icon/Icon.jsx";
+import {BookOpenText, NotebookPen} from "lucide-react";
+import {IconButton} from "../../Icon/IconButton/IconButton.jsx";
 
 function TopicPanel({topic}) {
     const thisExercises = exercises.filter(e => e.topic === topic)
@@ -15,8 +15,8 @@ function TopicPanel({topic}) {
                 </div>
                 <div className={styles.body}>
                     <div className={styles.iconsContainer}>
-                            <IconButton link={`/menu/${topic}`} image={Icon.book} className={styles.button}/>
-                            <IconButton link={`/menu/${topic}`} image={Icon.exercise} className={styles.button}/>
+                            <IconButton link={`/menu/${topic}`} Icon={BookOpenText} className={styles.button}/>
+                            <IconButton link={`/menu/${topic}`} Icon={NotebookPen} className={styles.button}/>
 
                     </div>
                     <div className={styles.progressBarContainer}>

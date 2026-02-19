@@ -3,12 +3,12 @@ import ExerciseIcon from "../ExerciseIcon/ExerciseIcon.jsx";
 import {exercises} from "../../../Utility/Exercises.js";
 import styles from './ExercisesScreen.module.css'
 import Label from "../../Label/Label.jsx";
-import IconComponent from "../../Icon/IconComponent.jsx"
+import {IconComponent} from "../../Icon/IconComponent.jsx"
 import {useParams} from "react-router-dom";
 import {textConvert} from "../../../Utility/textConvert.js";
 import {useNavigate} from "react-router-dom"
 import TopBar from "../../TopBar/TopBar.jsx";
-import Icon from "../../Icon/Icon.jsx";
+import {Icon} from "../../Icon/Icon.jsx";
 
 function ExercisesScreen() {
     const [activeExercise, updateActivateExercise] = useState(null)
@@ -96,7 +96,7 @@ function Button({status, exercise}) {
         <button
             onClick={() => navigate(link)}
             className={`${styles.button} ${styles[status]}`}>
-            <IconComponent image={Icon[status]} className={styles.icon}/>
+            <IconComponent Icon={Icon[status]} className={styles.icon}/>
             <Label text={status.charAt(0).toUpperCase() + status.slice(1)} size={'medium'}/>
         </button>
     )

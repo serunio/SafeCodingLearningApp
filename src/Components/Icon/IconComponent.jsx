@@ -1,11 +1,4 @@
-import Icon from "./Icon.jsx";
+export function IconComponent({Icon, ...props}) {
 
-
-export function IconComponent({image, ...other})
-{
-    return (image ?? Icon.default)({...other})
+    return Icon !== undefined ? <Icon {...props} /> : <></>
 }
-
-export default IconComponent
-
-

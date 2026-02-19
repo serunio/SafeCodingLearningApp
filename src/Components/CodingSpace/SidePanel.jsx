@@ -4,7 +4,6 @@ import style from "./CodingSpace.module.css"
 import {FileTree} from "./FileTree.jsx";
 import {useParams} from "react-router-dom";
 import {Instructions} from "./Instructions.jsx";
-import IconButton from "../Icon/IconButton/IconButton.jsx";
 
 export function SidePanel({left, right}) {
 
@@ -18,7 +17,7 @@ export function SidePanel({left, right}) {
     return <>
         {left ?? panel}
         <div className={style.sidebar}>
-            <IconButton/>
+
         </div>
         {right ?? panel}
     </>
