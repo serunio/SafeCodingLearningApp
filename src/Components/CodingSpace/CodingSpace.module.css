@@ -1,6 +1,5 @@
 .pageBackground {
     background-color: var(--vs-foreground);
-    height: 80%;
 }
 
 .navBar {
@@ -16,7 +15,7 @@
     align-items: center;
     gap: 5px;
     /*box-sizing: border-box;*/
-    height: 100%;
+    height: calc(100% - 1px);
     border-style: solid solid solid none;
     border-color: var(--vs-stroke);
     border-width: 1px;
@@ -35,7 +34,7 @@
     .tab.selected {
         background-color: var(--vs-foreground);
         border-top-color: var(--vs-highlight);
-        border-bottom-style: none;
+        border-bottom-color: var(--vs-foreground);
     }
 
     .tabLabel.default {
@@ -79,7 +78,8 @@
     }
 
 .tree {
-    height: calc(100vh - 20px);
+    user-select: none;
+    height: 100%;
     background-color: var(--vs-background);
     color: var(--stroke-color);
     --rct-color-focustree-item-selected-bg: var(--vs-foreground);
@@ -91,23 +91,47 @@
 }
 
 .code {
-    height: calc(100vh - 51px);
-}
-
-section {
-    display: flex;
-    width: 100%;
-    height: calc(100vh - 20px);
+    height: calc(100% - 32px);
+    flex: 1;
+    overflow: hidden;
 }
 
 .sidebar {
+    height: 100%;
     width: 30px;
+    padding: 5px;
     background-color: #121212;
 }
 
+.resizer {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    cursor: col-resize;
+}
+
+.resizer.left {
+    right: -5px;
+}
+
+.resizer.right {
+    left: -5px;
+}
+
+
 .instructions {
-    height: calc(100vh - 60px);
+    height: 100%;
     background-color: var(--vs-background);
     color: var(--stroke-color);
     padding: 20px;
+}
+
+.layout {
+    display: flex;
+    height: calc(100vh - 20px);
+    width: 100%;
+    overflow: hidden;
 }

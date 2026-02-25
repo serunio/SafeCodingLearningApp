@@ -17,33 +17,17 @@ export function Editor() {
         setSingleTab,
         tabs,
         setTabs,
-        treeRef
+        treeRef, expandedItems, setExpandedItems, focusedItem, setFocusedItem,
+        focusItem, selectFile, close
     } = useContext(CodingSpaceContext)
     const editorRef = useRef(null);
     const file = fileName !== null ? tree[fileName] : null;
 
-    function selectFile(index) {
-        if (index !== undefined) {
-            treeRef.current.focusItem(index)
-            treeRef.current.selectItems([index]);
-        } else {
-            setSelectedItems(null)
-        }
-    }
 
-    function close(index) {
-        if (index === singleTab?.index) {
-            setSingleTab(null);
-        }
-        const newTabs = tabs.filter(i => i.index !== index)
-        setTabs(newTabs)
-        setFileName(newTabs[0]?.index?.toString())
-        selectFile(newTabs[0]?.index?.toString())
-    }
 
     return <>
         <div className={styles.code}>
-            <NavBar setFileNameFunc={setFileName} activeFileName={fileName}/>
+            <NavBar/>
             {fileName !== undefined ?
                 (<MonacoEditor
                     theme="vs-dark"

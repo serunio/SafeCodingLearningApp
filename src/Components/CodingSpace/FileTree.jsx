@@ -1,4 +1,4 @@
-import {useContext, useRef, useState} from "react";
+import {useContext, useRef} from "react";
 import {CodingSpaceContext} from "./CodingSpaceContext.js";
 import {ControlledTreeEnvironment, InteractionMode, Tree} from "react-complex-tree";
 import styles from "./CodingSpace.module.css"
@@ -6,44 +6,15 @@ import {tree} from "./files.js";
 
 export function FileTree() {
     const treeEnvRef = useRef(null);
-    const [expandedItems, setExpandedItems] = useState([]);
-    const [focusedItem, setFocusedItem] = useState('root');
     const {
         selectedItems,
             setSelectedItems,
-            fileName,
-            setFileName,
-            singleTab,
-            setSingleTab,
-            tabs,
-            setTabs,
-            treeRef
+            focusItem,
+            primaryAction,
+            treeRef, expandedItems, setExpandedItems, focusedItem, setFocusedItem
     } = useContext(CodingSpaceContext)
 
-    function focusItem(item) {
-        console.log(`focus: ${item.index}`)
-        setFocusedItem(item.index)
-        if (item.isFolder) {
-            console.log('folder')
-            return
-        }
 
-        if (tabs.includes(item)) {
-            primaryAction(item)
-            return
-        }
-        setSingleTab(item)
-        setFileName(item.index.toString())
-    }
-
-    function primaryAction(item) {
-        console.log(`primary: ${item.index}`)
-        if (!tabs.includes(item))
-            setTabs([...tabs, item])
-        if (singleTab === item)
-            setSingleTab(null)
-        setFileName(item.index.toString())
-    }
     return <>
         <div className={styles.tree}>
             <ControlledTreeEnvironment

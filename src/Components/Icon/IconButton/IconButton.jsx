@@ -1,10 +1,20 @@
 import styles from "./IconButton.module.css"
 import {Link} from "react-router-dom";
 import {IconComponent} from "../IconComponent.jsx"
+import {useDraggable} from "@dnd-kit/react";
 
-export function IconButton ({link, Icon, className})
+export function IconLink ({link, Icon, className})
 {
     return <>
-        <Link to={link} className={`${className} ${styles.button}`}><IconComponent Icon={Icon} className={styles.icon}/></Link>
+        <Link to={link} className={`${className} ${styles.button} ${styles.bordered}`}><IconComponent Icon={Icon} className={styles.icon}/></Link>
     </>
+}
+
+export function IconButton ({onClick, Icon, className, ...props}) {
+    return <div {...props} className={`${styles.button} ${className}` } onClick={onClick}><IconComponent Icon={Icon} className={styles.icon}/></div>
+}
+
+export function DraggableIconButton ({id, onClick, Icon, ...props}) {
+    const {ref} = useDraggable({id: id})
+    return <IconButton {...props} Icon={Icon} onClick={onClick} ref={ref}/>
 }
