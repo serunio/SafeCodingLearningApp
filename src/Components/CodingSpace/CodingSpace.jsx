@@ -66,6 +66,7 @@ export function CodingSpace() {
         setFileName(newTabs[0]?.index?.toString())
         selectFile(newTabs[0]?.index?.toString())
     }
+
     // useEffect(() => {
     //     editorRef.current?.focus();
     // }, [file?.name]);
@@ -90,8 +91,15 @@ export function CodingSpace() {
                         buttonsPos,
                         setButtonsPos,
                         panelPos,
-                        setPanelPos, expandedItems, setExpandedItems, focusedItem, setFocusedItem,
-                        focusItem, primaryAction, selectFile, close
+                        setPanelPos,
+                        expandedItems,
+                        setExpandedItems,
+                        focusedItem,
+                        setFocusedItem,
+                        focusItem,
+                        primaryAction,
+                        selectFile,
+                        close
                     }}>
                     <DragDropProvider
                         onDragEnd={(event) => {
@@ -100,7 +108,7 @@ export function CodingSpace() {
                             if (!target) return
                             setPanelPos((prev) => {
                                 const curBar = Object.keys(prev).find(key => prev[key] === source.id);
-                                if(curBar !== undefined) {
+                                if (curBar !== undefined) {
                                     return {...prev, [curBar]: panel.none, [target.id]: source.id};
                                 }
                                 return prev;

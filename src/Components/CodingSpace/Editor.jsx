@@ -9,16 +9,11 @@ import {XIcon} from "lucide-react";
 
 export function Editor() {
     const {
-        selectedItems,
-        setSelectedItems,
         fileName,
-        setFileName,
         singleTab,
-        setSingleTab,
         tabs,
-        setTabs,
-        treeRef, expandedItems, setExpandedItems, focusedItem, setFocusedItem,
-        focusItem, selectFile, close
+        selectFile,
+        close
     } = useContext(CodingSpaceContext)
     const editorRef = useRef(null);
     const file = fileName !== null ? tree[fileName] : null;
