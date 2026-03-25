@@ -11,7 +11,7 @@ export function FileTree() {
             setSelectedItems,
             focusItem,
             primaryAction,
-            treeRef, expandedItems, setExpandedItems, focusedItem, setFocusedItem
+            treeRef, expandedItems, setExpandedItems, focusedItem
     } = useContext(CodingSpaceContext)
 
 
