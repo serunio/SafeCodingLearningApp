@@ -2,9 +2,9 @@ import React, {useContext} from "react";
 import style from "./CodingSpace.module.css"
 import {DraggableIconButton} from "../Icon/IconButton/IconButton.jsx";
 import {BookText, Folder} from 'lucide-react'
-import {CodingSpaceContext} from "./CodingSpaceContext.js";
+import {CodingSpaceContext} from "../../Utility/CodingSpaceContext.jsx";
 import {useDroppable} from "@dnd-kit/react";
-import {panel} from "./Enums.jsx";
+import {panel} from "../../Utility/Enums.js";
 
 export function SideBar({position}) {
     const {buttonsPos, panelPos, setPanelPos} = useContext(CodingSpaceContext)

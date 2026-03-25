@@ -1,7 +1,7 @@
-import TopicPanel from "../TopicPanel/TopicPanel.jsx"
+import TopicPanel from "../../Components/TopicPanel/TopicPanel.jsx"
 import styles from "./TopicsScreen.module.css"
-import {exercises} from "../../../Utility/Exercises.js";
-import TopBar from "../../TopBar/TopBar.jsx";
+import {exercises} from "../../Utility/fakeAPI/Exercises.js";
+import TopBar from "../../Components/TopBar/TopBar.jsx";
 
 function TopicsScreen() {
     const topics = [...new Set(exercises.map(e => e.topic))]

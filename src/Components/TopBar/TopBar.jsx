@@ -4,8 +4,16 @@ import Label from "../Label/Label.jsx";
 import {IconLink} from "../Icon/IconButton/IconButton.jsx";
 import {textConvert} from "../../Utility/textConvert.js";
 import {IconComponent} from "../Icon/IconComponent.jsx";
+import {useContext} from "react";
+import {AuthorizationContext} from "../../Utility/AuthorizationContext.jsx";
 
 function TopBar({topic, small}) {
+    const {setUser} = useContext(AuthorizationContext)
+    if(setUser === null)
+        return null
+    const logout = () => {
+        setUser(null)
+    }
     return <>
         <div className={`${styles.body} ${small ? styles.small : null}`}>
             <div className={styles.bar}>
@@ -16,6 +24,7 @@ function TopBar({topic, small}) {
                 <div className={styles.settingsUserGroup}>
                     <IconComponent Icon={Settings} className={styles.icon}/>
                     <IconComponent Icon={UserRound} className={styles.icon}/>
+                    <button onClick={logout}>logout</button>
                 </div>
             </div>
             {topic != null ? (<div className={styles.underBar}>

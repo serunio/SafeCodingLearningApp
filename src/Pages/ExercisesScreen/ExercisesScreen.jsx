@@ -1,14 +1,14 @@
 import {useState} from "react";
-import ExerciseIcon from "../ExerciseIcon/ExerciseIcon.jsx";
-import {exercises} from "../../../Utility/Exercises.js";
+import ExerciseIcon from "../../Components/ExerciseIcon/ExerciseIcon.jsx";
+import {exercises} from "../../Utility/fakeAPI/Exercises.js";
 import styles from './ExercisesScreen.module.css'
-import Label from "../../Label/Label.jsx";
-import {IconComponent} from "../../Icon/IconComponent.jsx"
+import Label from "../../Components/Label/Label.jsx";
+import {IconComponent} from "../../Components/Icon/IconComponent.jsx"
 import {useParams} from "react-router-dom";
-import {textConvert} from "../../../Utility/textConvert.js";
+import {textConvert} from "../../Utility/textConvert.js";
 import {useNavigate} from "react-router-dom"
-import TopBar from "../../TopBar/TopBar.jsx";
-import {Icon} from "../../Icon/Icon.jsx";
+import TopBar from "../../Components/TopBar/TopBar.jsx";
+import {Icon} from "../../Components/Icon/Icon.jsx";
 
 function ExercisesScreen() {
     const [activeExercise, updateActivateExercise] = useState(null)

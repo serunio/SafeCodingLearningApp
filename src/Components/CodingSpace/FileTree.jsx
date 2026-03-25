@@ -1,8 +1,8 @@
 import {useContext, useRef} from "react";
-import {CodingSpaceContext} from "./CodingSpaceContext.js";
+import {CodingSpaceContext} from "../../Utility/CodingSpaceContext.jsx";
 import {ControlledTreeEnvironment, InteractionMode, Tree} from "react-complex-tree";
 import styles from "./CodingSpace.module.css"
-import {tree} from "./files.js";
+import {tree} from "../../Utility/fakeAPI/files.js";
 
 export function FileTree() {
     const treeEnvRef = useRef(null);

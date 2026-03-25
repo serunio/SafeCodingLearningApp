@@ -1,9 +1,9 @@
 import styles from "./TopicPanel.module.css"
-import Label from "../../Label/Label.jsx";
-import {textConvert} from "../../../Utility/textConvert.js";
-import {exercises} from "../../../Utility/Exercises.js";
+import Label from "../Label/Label.jsx";
+import {textConvert} from "../../Utility/textConvert.js";
+import {exercises} from "../../Utility/fakeAPI/Exercises.js";
 import {BookOpenText, NotebookPen} from "lucide-react";
-import {IconLink} from "../../Icon/IconButton/IconButton.jsx";
+import {IconLink} from "../Icon/IconButton/IconButton.jsx";
 
 function TopicPanel({topic}) {
     const thisExercises = exercises.filter(e => e.topic === topic)

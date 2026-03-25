@@ -2,8 +2,8 @@ import styles from "./CodingSpace.module.css"
 import {useContext, useRef} from "react";
 import {Editor as MonacoEditor} from "@monaco-editor/react"
 import Label from "../Label/Label.jsx";
-import {tree} from "./files.js";
-import {CodingSpaceContext} from "./CodingSpaceContext.js";
+import {tree} from "../../Utility/fakeAPI/files.js";
+import {CodingSpaceContext} from "../../Utility/CodingSpaceContext.jsx";
 import {IconComponent} from "../Icon/IconComponent.jsx";
 import {XIcon} from "lucide-react";
 

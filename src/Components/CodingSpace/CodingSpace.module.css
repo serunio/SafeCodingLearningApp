@@ -1,6 +1,4 @@
-.pageBackground {
-    background-color: var(--vs-foreground);
-}
+
 
 .navBar {
     background-color: var(--vs-background);
@@ -131,11 +129,4 @@
     background-color: var(--vs-background);
     color: var(--stroke-color);
     padding: 20px;
-}
-
-.layout {
-    display: flex;
-    height: calc(100vh - 20px);
-    width: 100%;
-    overflow: hidden;
 }

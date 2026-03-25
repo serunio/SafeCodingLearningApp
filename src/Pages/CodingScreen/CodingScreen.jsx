@@ -1,16 +1,16 @@
 import React, {useRef, useState} from "react";
 import 'react-complex-tree/lib/style-modern.css';
-import styles from './CodingSpace.module.css'
-import TopBar from "../TopBar/TopBar.jsx";
+import styles from './CodingScreen.module.css'
+import TopBar from "../../Components/TopBar/TopBar.jsx";
 import {useParams} from "react-router-dom";
-import {CodingSpaceContext} from "./CodingSpaceContext.js";
+import {CodingSpaceContext} from "../../Utility/CodingSpaceContext.jsx";
 import {DragDropProvider} from "@dnd-kit/react";
-import {bar, panel} from "./Enums.jsx";
-import {SideBar} from "./SideBar.jsx";
-import {Panel} from "./Panel.jsx";
-import {Editor} from "./Editor.jsx";
+import {bar, panel} from "../../Utility/Enums.js";
+import {SideBar} from "../../Components/CodingSpace/SideBar.jsx";
+import {Panel} from "../../Components/CodingSpace/Panel.jsx";
+import {Editor} from "../../Components/CodingSpace/Editor.jsx";
 
-export function CodingSpace() {
+export function CodingScreen() {
     const treeRef = useRef(null)
     const [fileName, setFileName] = useState(undefined);
     const [tabs, setTabs] = useState([])

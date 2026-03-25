@@ -1,8 +1,8 @@
 import styles from './ExerciseIcon.module.css'
-import Label from "../../Label/Label.jsx";
-import {Icon} from "../../Icon/Icon.jsx"
+import Label from "../Label/Label.jsx";
+import {Icon} from "../Icon/Icon.jsx"
 import {useNavigate} from "react-router-dom";
-import {IconComponent} from "../../Icon/IconComponent.jsx";
+import {IconComponent} from "../Icon/IconComponent.jsx";
 
 function ExerciseIcon({exercise, activeExerciseState: {onUpdateActiveExercise, activeExercise}}) {
     const navigate = useNavigate()

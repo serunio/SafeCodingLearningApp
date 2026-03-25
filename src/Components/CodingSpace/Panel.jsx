@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useRef, useState} from "react";
-import {CodingSpaceContext} from "./CodingSpaceContext";
-import {bar, panel} from "./Enums.jsx";
+import {CodingSpaceContext} from "../../Utility/CodingSpaceContext.jsx";
+import {bar, panel} from "../../Utility/Enums.js";
 import {Instructions} from "./Instructions.jsx";
 import {FileTree} from "./FileTree.jsx";
 import style from "./CodingSpace.module.css";
