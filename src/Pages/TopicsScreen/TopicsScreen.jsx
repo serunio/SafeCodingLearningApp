@@ -10,8 +10,8 @@ function TopicsScreen() {
             <TopBar/>
             <div className={styles.wrapper}>
                 {
-                    topics.map(e => (
-                        <TopicPanel topic={e}/>
+                    topics.map((e, i) => (
+                        <TopicPanel key={i} topic={e}/>
                     ))
                 }
             </div>

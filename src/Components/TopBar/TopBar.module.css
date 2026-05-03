@@ -54,9 +54,8 @@
 }
 
 .body.small .underBar .icon {
-    width: 10px;
-    border-width: 1px;
-    border-radius: 4px;
+    width: 15px;
+    border-style: none;
 }
 
 .label {
@@ -79,4 +78,15 @@
 .body.small > .underBar {
     box-shadow: none;
     border-radius: 50px 50px 0 0;
+}
+
+.body button {
+    background: none;
+    border: none;
+    color: var(--stroke-color);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--gray-color);
+    }
 }

@@ -8,11 +8,16 @@ import {useContext} from "react";
 import {AuthorizationContext} from "../../Utility/AuthorizationContext.jsx";
 
 function TopBar({topic, small}) {
-    const {setUser} = useContext(AuthorizationContext)
+    const {user, setUser} = useContext(AuthorizationContext)
     if(setUser === null)
         return null
-    const logout = () => {
-        setUser(null)
+    const logout = async () => {
+        try {
+            await fetch(`${import.meta.env.VITE_BACKEND_URL}logout`, {credentials: 'include'})
+            setUser(null)
+        } catch (e) {
+            console.log(e)
+        }
     }
     return <>
         <div className={`${styles.body} ${small ? styles.small : null}`}>
@@ -22,9 +27,10 @@ function TopBar({topic, small}) {
                     <Label text={'Menu'} size={'medium'} className={styles.label}/>
                 </div>
                 <div className={styles.settingsUserGroup}>
-                    <IconComponent Icon={Settings} className={styles.icon}/>
+                    <Label text={user["first name"] + " " + user["last name"]} size={'small'}/>
                     <IconComponent Icon={UserRound} className={styles.icon}/>
-                    <button onClick={logout}>logout</button>
+                    <IconComponent Icon={Settings} className={styles.icon}/>
+                    <button onClick={logout}>Logout</button>
                 </div>
             </div>
             {topic != null ? (<div className={styles.underBar}>

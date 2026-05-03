@@ -6,7 +6,7 @@ import {useDraggable} from "@dnd-kit/react";
 export function IconLink ({link, Icon, className})
 {
     return <>
-        <Link to={link} className={`${className} ${styles.button} ${styles.bordered}`}><IconComponent Icon={Icon} className={styles.icon}/></Link>
+        <Link to={link} className={`${styles.button} ${styles.bordered} ${className}`}><IconComponent Icon={Icon} className={styles.icon}/></Link>
     </>
 }
 
