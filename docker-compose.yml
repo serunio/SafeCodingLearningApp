@@ -1,0 +1,87 @@
+services:
+  dev:
+    build: .
+    container_name: project_dev
+    ports:
+      - "8443:8443"
+    volumes:
+      - .:/workspace
+      - code_server_config:/home/coder/.local/share/code-server
+    environment:
+      - PASSWORD=dev
+    stdin_open: true
+    tty: true
+  web:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file:
+      - .env
+    container_name: project_web
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./SCLA_ML/app:/verifier
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db:5432/postgres
+    depends_on:
+      - db
+  db:
+    image: postgres:latest
+    container_name: project_db
+    user: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: project_frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules # zapobiega nadpisywaniu modułów
+    environment:
+      - VITE_API_URL=http://localhost:8000 # adres używany przez przeglądarkę
+    depends_on:
+      - web
+
+  vuln-detector:
+    build:
+      context: ./SCLA_ML
+      dockerfile: Dockerfile
+    container_name: SCLA_ML_checker
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_NUM_PARALLEL=1
+      - OLLAMA_MAX_LOADED_MODELS=1
+      - OLLAMA_KEEP_ALIVE=-1
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-sf", "http://localhost:11434/api/tags" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  code_server_config:
+  postgres_data:
+  ollama_data:

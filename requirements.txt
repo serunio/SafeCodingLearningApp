@@ -1,0 +1,10 @@
+# Add your Python dependencies here
+psycopg2
+fastapi
+itsdangerous
+uvicorn
+requests 
+requests-oauthlib
+dotenv
+typing
+python-multipart
